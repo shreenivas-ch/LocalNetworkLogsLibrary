@@ -75,10 +75,10 @@ class LocalNetworkLogsActivity : AppCompatActivity() {
                 foundAtArray.clear()
 
                 if (str.isNotEmpty()) {
-                    adapter.textToHightlight = str.toString()
+                    adapter.textToHightlight = str.toString().lowercase()
                     for (i in arrLogs.indices) {
-                        if (arrLogs[i].logstring.toLowerCase()
-                                .contains(str.toString().toLowerCase())
+                        if (arrLogs[i].logstring.lowercase()
+                                .contains(str.toString().lowercase())
                         ) {
                             foundAtArray.add(i)
                         }

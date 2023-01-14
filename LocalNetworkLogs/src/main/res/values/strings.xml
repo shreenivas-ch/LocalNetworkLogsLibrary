@@ -1,0 +1,4 @@
+<resources>
+<string name="logs_notification_channelname">Network Logs Notification</string>
+<string name="logs_notification_channelid">2001</string>
+</resources>

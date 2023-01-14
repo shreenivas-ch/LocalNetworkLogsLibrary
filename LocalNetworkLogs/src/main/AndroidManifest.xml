@@ -6,7 +6,8 @@
         <activity
             android:name=".LocalNetworkLogsActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/MyLogsTheme" />
 
     </application>
 
