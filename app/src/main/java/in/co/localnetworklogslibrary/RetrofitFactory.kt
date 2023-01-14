@@ -40,16 +40,19 @@ object RetrofitFactory {
                 .readTimeout(120, TimeUnit.SECONDS)
                 .writeTimeout(90, TimeUnit.SECONDS)
 
-        clientBuilder.addNetworkInterceptor(
+        /*clientBuilder.addNetworkInterceptor(
             HttpLoggingInterceptor().setLevel(
                 HttpLoggingInterceptor.Level.BODY
             )
-        )
+        )*/
+        var httpLoggingInterceptor =
+            LocalNetworkLogsManager.getInstance().getHttpLoggingInterceptor(true)
 
-        var localNetworkLogs = LocalNetworkLogsManager()
-        localNetworkLogs.with(application)
-        var httpLoggingInterceptor = LocalNetworkLogsManager.getInstance().getHttpLoggingInterceptor(true)
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.HEADERS
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        clientBuilder.addNetworkInterceptor(httpLoggingInterceptor)
 
+        //clientBuilder.addInterceptor(httpLoggingInterceptor)
 
         return clientBuilder.build()
     }

@@ -2,13 +2,13 @@ package `in`.co.localnetworklogs
 
 import kotlin.reflect.KFunction0
 
-open class SingletonHolder<out T, in A>(private val constructor: KFunction0<LocalNetworkLogsManager>) {
+open class SingletonHolder<out T>(private val constructor: KFunction0<T>) {
 
     @Volatile
     private var instance: T? = null
 
-    fun getInstance(arg: A): T =
-        instance ?: synchronized(this) {
-            instance ?: constructor(arg).also { instance = it }
-        }
+    fun getInstance(): T =
+        (instance ?: synchronized(this) {
+            instance ?: constructor().also { instance = it }
+        })
 }

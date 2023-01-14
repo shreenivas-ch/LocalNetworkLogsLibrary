@@ -9,31 +9,34 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-class LocalNetworkLogsManager private constructor() {
+class LocalNetworkLogsManager {
 
     private lateinit var preferences: SharedPreferences
 
-    fun initiate(application: Application)
-    {
-        application.getSharedPreferences(
+    fun initiate(application: Application) {
+        preferences = application.getSharedPreferences(
             PREFERENCES_FILE_NAME, Context.MODE_PRIVATE
         )
     }
 
     private val PREFERENCES_FILE_NAME = "LocalNetworkLogsSharedPreferences"
 
-    companion object : SingletonHolder<LocalNetworkLogsManager, Application>(::LocalNetworkLogsManager)
+    companion object : SingletonHolder<LocalNetworkLogsManager>(::LocalNetworkLogsManager)
 
     private fun clearPreferences() {
         preferences.edit().clear().commit()
+    }
+
+    fun clearLogs() {
+        setString("logs", "")
     }
 
     private fun setString(value: String?, key: String) {
         preferences.edit().putString(key, value).apply()
     }
 
-    private fun getString(key: String): String? {
-        return preferences.getString(key, "")
+    fun getString(key: String): String {
+        return preferences.getString(key, "") ?: ""
     }
 
     fun getHttpLoggingInterceptor(isLogsActive: Boolean): HttpLoggingInterceptor {
@@ -41,9 +44,9 @@ class LocalNetworkLogsManager private constructor() {
 
             if (isLogsActive) {
                 if (isJSONValid(message)) {
-                    Log.i("OkHttp", formatString(message))
+                    Log.e("LocalNetworkLogsManager", formatString(message))
                 } else {
-                    Log.i("OkHttp", message)
+                    Log.e("LocalNetworkLogsManager", message)
                 }
 
                 val log = getString("logs")
