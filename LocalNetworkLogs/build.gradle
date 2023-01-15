@@ -9,7 +9,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        minSdk 21
+        minSdk 19
         targetSdk 32
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -46,7 +46,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'in.co'
                 artifactId = 'localnetworklogs'
-                version = "1.0.0"
+                version = "1.0.1"
             }
         }
     }
