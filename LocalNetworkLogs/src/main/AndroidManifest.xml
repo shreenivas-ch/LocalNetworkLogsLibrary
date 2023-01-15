@@ -4,6 +4,7 @@
     <application>
 
         <activity
+            android:launchMode="singleInstance"
             android:name=".LocalNetworkLogsActivity"
             android:exported="false"
             android:screenOrientation="portrait"

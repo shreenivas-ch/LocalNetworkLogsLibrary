@@ -13,4 +13,11 @@ class MainViewModel : ViewModel() {
             apiInterface.getUsers()
         }
     }
+
+    fun getUserData()
+    {
+        viewModelScope.launch {
+            apiInterface.getUserData()
+        }
+    }
 }

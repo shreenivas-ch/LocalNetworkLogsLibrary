@@ -7,9 +7,13 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/txtCallAPI"
+        android:textColor="#ffffff"
+        android:padding="7dp"
+        android:background="#F44336"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Call API!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

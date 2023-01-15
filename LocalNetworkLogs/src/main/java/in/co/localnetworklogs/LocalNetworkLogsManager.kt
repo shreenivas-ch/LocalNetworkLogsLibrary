@@ -117,9 +117,7 @@ class LocalNetworkLogsManager {
     fun createNotification(text: String) {
 
         val intent =
-            Intent(application.applicationContext, LocalNetworkLogsActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            }
+            Intent(application.applicationContext, LocalNetworkLogsActivity::class.java)
         val pendingIntent: PendingIntent =
             PendingIntent.getActivity(application, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 

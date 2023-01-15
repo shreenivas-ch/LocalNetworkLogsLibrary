@@ -1,9 +1,8 @@
 package `in`.co.localnetworklogslibrary
 
-import `in`.co.localnetworklogs.LocalNetworkLogsManager
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,5 +11,9 @@ class MainActivity : AppCompatActivity() {
 
         var mainViewModel = MainViewModel()
         mainViewModel.getUsers()
+
+        findViewById<TextView>(R.id.txtCallAPI).setOnClickListener {
+            mainViewModel.getUserData()
+        }
     }
 }
