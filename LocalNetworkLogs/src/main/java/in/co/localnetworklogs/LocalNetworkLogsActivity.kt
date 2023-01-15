@@ -87,9 +87,11 @@ class LocalNetworkLogsActivity : AppCompatActivity() {
                     if (foundAtArray.size > 0) {
                         rcLogs.scrollToPosition(foundAtArray[0])
                     }
+                    imgClear.visibility = View.VISIBLE
                 } else {
                     adapter.textToHightlight = ""
                     adapter.notifyDataSetChanged()
+                    imgClear.visibility = View.GONE
                 }
             }
 
@@ -115,7 +117,8 @@ class LocalNetworkLogsActivity : AppCompatActivity() {
 
         if (LocalNetworkLogsManager.getInstance().getString("logs") != null) {
             arrLogs.clear()
-            val lines =LocalNetworkLogsManager.getInstance().getString("logs").split(System.getProperty("line.separator")!!)
+            val lines = LocalNetworkLogsManager.getInstance().getString("logs")
+                .split(System.getProperty("line.separator")!!)
             for (i in lines.indices) {
                 when {
                     isJSONValid(lines[i]) -> {
