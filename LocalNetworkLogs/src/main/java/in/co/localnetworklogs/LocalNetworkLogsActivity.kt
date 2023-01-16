@@ -48,7 +48,7 @@ class LocalNetworkLogsActivity : AppCompatActivity() {
             .setBold(true)
             .setItalic(true)
 
-        rcLogs.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
+        rcLogs.layoutManager = LinearLayoutManager(this)
         adapter = LogsAdapter(arrLogs, highlighter)
         rcLogs.adapter = adapter
 
@@ -115,36 +115,33 @@ class LocalNetworkLogsActivity : AppCompatActivity() {
 
     fun loadLogs() {
 
-        if (LocalNetworkLogsManager.getInstance().getString("logs") != null) {
-            arrLogs.clear()
-            val lines = LocalNetworkLogsManager.getInstance().getString("logs")
-                .split(System.getProperty("line.separator")!!)
-            for (i in lines.indices) {
-                when {
-                    isJSONValid(lines[i]) -> {
-                        var modellog = ModelLog(formatString(lines[i]), "json")
-                        arrLogs.add(modellog)
-                    }
+        arrLogs.clear()
+        val lines = LocalNetworkLogsManager.getInstance().getString("logs")
+            .split(System.getProperty("line.separator")!!)
+        for (i in lines.indices) {
+            when {
+                isJSONValid(lines[i]) -> {
+                    var modellog = ModelLog(formatString(lines[i]), "json")
+                    arrLogs.add(modellog)
+                }
 
-                    lines[i].contains("http") -> {
-                        var modellog = ModelLog(formatString(lines[i]), "http")
-                        arrLogs.add(modellog)
-                    }
-                    else -> {
-                        var modellog = ModelLog(formatString(lines[i]))
-                        arrLogs.add(modellog)
-                    }
+                lines[i].contains("http") -> {
+                    var modellog = ModelLog(formatString(lines[i]), "http")
+                    arrLogs.add(modellog)
+                }
+                else -> {
+                    var modellog = ModelLog(formatString(lines[i]))
+                    arrLogs.add(modellog)
                 }
             }
+        }
 
-            adapter.notifyDataSetChanged()
+        adapter.notifyDataSetChanged()
 
-            if (LocalNetworkLogsManager.getInstance().getString("logs") == "") {
-                txtNoLogs.visibility = View.VISIBLE
-            } else {
-                txtNoLogs.visibility = View.GONE
-            }
-
+        if (LocalNetworkLogsManager.getInstance().getString("logs") == "") {
+            txtNoLogs.visibility = View.VISIBLE
+        } else {
+            txtNoLogs.visibility = View.GONE
         }
 
     }

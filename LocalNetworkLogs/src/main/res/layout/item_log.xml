@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="log"
+        android:text="https://developer.android.com/develop/ui/views/text-and-emoji/fonts-in-xml"
+        android:fontFamily="@font/jetbrainsmono_medium"
         android:textColor="#000"
         />
 
