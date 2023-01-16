@@ -33,7 +33,6 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
@@ -46,7 +45,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'in.co'
                 artifactId = 'localnetworklogs'
-                version = "1.0.1"
+                version = "1.0.2"
             }
         }
     }
