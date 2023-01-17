@@ -1,4 +1,6 @@
 # LocalNetworkLogsLibrary
+### Track all API requests.
+Integration of this library into your application will be helpful to testers and QAs who don't have access to which all APIs getting called in the background. 
 
 [![](https://jitpack.io/v/shreenivas-ch/LocalNetworkLogsLibrary.svg)](https://jitpack.io/#shreenivas-ch/LocalNetworkLogsLibrary)
 
@@ -7,8 +9,6 @@
 </p>
 
 ## Min SDK Version - 19
-
-LocalNetworkLogsLibrary - Track all API requests.
 
 ## Add library to your project
 
