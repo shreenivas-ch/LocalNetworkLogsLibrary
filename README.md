@@ -3,7 +3,7 @@
 [![](https://jitpack.io/v/shreenivas-ch/LocalNetworkLogsLibrary.svg)](https://jitpack.io/#shreenivas-ch/LocalNetworkLogsLibrary)
 
 <p align="center">
-<img src="https://github.com/shreenivas-ch/LocalNetworkLogsLibrary/blob/2c569d4d0303255c724e7525718796373848e79f/lib1.png" alt="alt text" width="200" hspace="40"><img src="https://github.com/shreenivas-ch/LocalNetworkLogsLibrary/blob/2c569d4d0303255c724e7525718796373848e79f/lib2.png" alt="alt text" width="200" hspace="40">
+<img src="https://github.com/shreenivas-ch/LocalNetworkLogsLibrary/blob/2c569d4d0303255c724e7525718796373848e79f/ss1.png" alt="alt text" width="200" hspace="40"><img src="https://github.com/shreenivas-ch/LocalNetworkLogsLibrary/blob/2c569d4d0303255c724e7525718796373848e79f/ss2.png" alt="alt text" width="200" hspace="40">
 </p>
 
 ## Min SDK Version - 19
